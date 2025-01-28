@@ -1,0 +1,96 @@
+---
+import {Image} from "astro:assets";
+import edilicio from "../assets/img/edilicio.jpg";
+import deposito from "../assets/img/deposito.jpg";
+---
+<div id="carrousel-container" class="relative">
+    <div id="carrousel-visor" class="text-white flex items-center overflow-hidden">
+        <div id="carrousel-gallery" class="flex items-center transition-transform duration-300 ease-in-out [&>div>span]:[text-shadow:_0_4px_12px_rgb(0_0_0_/_0.8)] [&>div>span]:absolute [&>div>span]:text-2xl lg:[&>div>span]:text-6xl [&>div>span]:sm:m-16 [&>div>span]:m-4">
+            <div class="flex-shrink-0 w-full lg:w-2/3">
+                <span>Especialistas a su servicio</span>
+                <Image src={edilicio} alt="Imagen edilicios">
+            </div>
+            <div class="flex-shrink-0 w-full">
+                <span>Depositos más economicos</span>
+                <Image src={deposito} alt="Imagen de deposito">
+            </div>
+        </div>
+
+        <div id="navigation" class="absolute flex w-full px-4 text-white justify-between">
+            <button id="prev" class="op-05 rounded-full p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                </svg>
+            </button>
+            <button id="next" class="op-05 rounded-full p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Ensure the gallery is horizontally aligned and the images are full width */
+    #carrousel-gallery {
+        display: flex;
+    }
+
+    #carrousel-gallery > div {
+        min-width: 100%;
+    }
+
+    /* Styling for the container */
+    #carrousel-container {
+        position: relative;
+        width: 100%;
+    }
+
+    /* Add transition effects to the carousel */
+    #carrousel-gallery {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    /* Position buttons correctly */
+    #navigation button {
+        background-color: rgba(0, 0, 0, 0.5);
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 50%;
+    }
+
+    #navigation button:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+</style>
+
+<script>
+    // JavaScript to handle carousel movement
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('#carrousel-gallery > div');
+    const totalSlides = slides.length;
+    const carrouselGallery = document.getElementById('carrousel-gallery');
+  
+    // Function to move to the next slide
+    function moveNext() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateCarousel();
+    }
+  
+    // Function to move to the previous slide
+    function movePrev() {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    }
+  
+    // Update the carousel by changing the translateX
+    function updateCarousel() {
+      carrouselGallery!.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+  
+    // Event listeners for next and prev buttons
+    document.getElementById('prev')!.addEventListener('click', movePrev);
+    document.getElementById('next')!.addEventListener('click', moveNext);
+</script>

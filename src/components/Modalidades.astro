@@ -1,0 +1,15 @@
+---
+import CardSimpleRed from "./CardSimpleRed.astro";
+import semanal from "../assets/svg/semanal.svg"
+import mensual from "../assets/svg/mensual.svg"
+import permanente from "../assets/svg/permanente.svg"
+---
+
+<section class="my-14">
+    <h1 class="text-[#e20719] text-4xl font-extrabold text-center">Modalidades de trabajo</h1>
+    <div class="flex flex-wrap gap-4 justify-evenly mt-14">
+        <CardSimpleRed image={semanal.src} title="Visitas Semanales" description="Tareas programadas de mantenimiento por semana"/>
+        <CardSimpleRed image={mensual.src} title="Visitas Mensuales" description="Tareas específicas pautadas de relevamiento mensual"/>
+        <CardSimpleRed image={permanente.src} title="Personal Permanente" description="Técnicos permanentes para mantenimiento preventivo"/>
+    </div>
+</section>
