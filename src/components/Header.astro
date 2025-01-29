@@ -1,12 +1,16 @@
 ---
 import brand from "../assets/svg/brand.svg"
+import mantenor from "../assets/svg/mantenor-header.svg"
 ---
 
 <header class="bg-[#e20719] flex justify-between items-end sm:px-10 sm:py-4">
     <div class="w-full">
         <div class="flex justify-between">
-            <div class="p-4 sm:p-0">
+            <div class="p-4 sm:p-0 md:hidden">
                 <img src={brand.src} alt="Logo mantenor" class="w-40">
+            </div>
+            <div class="p-4 sm:p-0 hidden md:block">
+                <img src={mantenor.src} alt="Logo mantenor" class="w-70">
             </div>
             <div class="text-white my-auto me-4 sm:hidden">
                 <label for="acc">

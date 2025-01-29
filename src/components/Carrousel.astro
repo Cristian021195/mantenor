@@ -1,18 +1,46 @@
 ---
 import {Image} from "astro:assets";
+import mantenimiento from "../assets/img/mantenimiento.jpg";
+import espacio from "../assets/img/espacio.jpg";
 import edilicio from "../assets/img/edilicio.jpg";
-import deposito from "../assets/img/deposito.jpg";
+import soluciones from "../assets/img/soluciones.jpg";
+
 ---
 <div id="carrousel-container" class="relative">
     <div id="carrousel-visor" class="text-white flex items-center overflow-hidden">
-        <div id="carrousel-gallery" class="flex items-center transition-transform duration-300 ease-in-out [&>div>span]:[text-shadow:_0_4px_12px_rgb(0_0_0_/_0.8)] [&>div>span]:absolute [&>div>span]:text-2xl lg:[&>div>span]:text-6xl [&>div>span]:sm:m-16 [&>div>span]:m-4">
+        <div id="carrousel-gallery" class="flex items-center transition-transform duration-300 ease-in-out [&>div>div>span]:[text-shadow:_0_4px_12px_rgb(0_0_0_/_0.8)]
+         [&>div>div]:absolute [&>div>div>span]:text-2xl lg:[&>div>div>span]:text-6xl [&>div>div]:sm:m-16 [&>div>div]:m-4">
             <div class="flex-shrink-0 w-full lg:w-2/3">
-                <span>Especialistas a su servicio</span>
-                <Image src={edilicio} alt="Imagen edilicios" priority>
+                <div class="w-full">
+                    <span>Mantenimiento a medida</span>
+                    <br>
+                    <span>para empresas</span>
+                </div>
+                <Image src={mantenimiento} alt="Imagen de obreros y mantenimiento" class="w-full" priority>
             </div>
-            <div class="flex-shrink-0 w-full">
-                <span>Depositos más economicos</span>
-                <Image src={deposito} alt="Imagen de deposito">
+            <div class="flex-shrink-0 w-full lg:w-2/3">
+                <div class="w-full">
+                    <span>Cuidamos</span>
+                    <br>
+                    <span>tu espacio</span>
+                </div>
+                <Image src={espacio} alt="Imagen de cuidado de espacios verdes" class="w-full" priority>
+            </div>
+            <div class="flex-shrink-0 w-full lg:w-2/3">
+                <div class="w-full">
+                    <span>Expertos en</span>
+                    <br>
+                    <span>mantenimiento edilicio</span>
+                </div>
+                <Image src={edilicio} alt="Imagen mantenimiento edilicio" class="w-full" priority>
+            </div>
+            <div class="flex-shrink-0 w-full lg:w-2/3">
+                <div class="w-full">
+                    <span>Soluciones eficientes</span>
+                    <br>
+                    <span>para su infraestructura</span>
+                </div>
+                <Image src={soluciones} alt="Imagen de soluciones de infraestructura" class="w-full" priority>
             </div>
         </div>
 

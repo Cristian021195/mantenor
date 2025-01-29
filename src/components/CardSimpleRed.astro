@@ -3,8 +3,10 @@ const { image, title="Título", description="Descripción" } = Astro.props;
 ---
 
 <div class="card-container">
-    <img src={image} alt={title} class="card-img"/>
-    <div class="text-center">
+    <div class="me-2 max-w-14 md:mx-auto">
+        <img src={image} alt={title} class="w-full"/>
+    </div>
+    <div class="md:text-center">
         <h2 class="card-title">{title}</h2>
         <p class="card-text">{description}</p>
     </div>

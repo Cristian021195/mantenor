@@ -29,14 +29,14 @@ body, header{
 #contacto-b:hover{background-color: rgba(0,0,0,0.5)}
 
 .card-container {
-    @apply rounded-xl shadow-[4px_4px_4px_2px_rgba(0,_0,_0,_0.2)] border border-gray-100 p-6 w-80 space-y-4;
+    @apply flex gap-2 items-center rounded-xl shadow-[4px_4px_4px_2px_rgba(0,_0,_0,_0.2)] border border-gray-100 p-6 w-80 space-y-4 sm:block;
 }
 .card-img{
-    @apply max-h-16 h-16 mx-auto;
+    /*@apply min-h-12 max-h-14 my-auto md:mx-auto md:my-0;*/
 }
 .card-title{
-    @apply text-2xl font-semibold text-[#e20719]
+    @apply text-xl font-semibold text-[#e20719] md:text-2xl
 }
 .card-text{
-    @apply text-gray-400 text-base mt-2 font-bold
+    @apply text-gray-400 mt-2 text-sm font-bold md:text-base
 }
