@@ -16,26 +16,26 @@ import obras from "../assets/svg/obras-civiles.svg";
     <article>
         <div class="relative">
             <h1 class="text-[#e20719] text-4xl font-extrabold mb-4 text-center sm:hidden">Servicios</h1>
-            <Image src={deposito} alt="Imagen de deposito" class="w-full h-auto hidden sm:block"/>
-            <div class="relative sm:absolute bottom-0 w-full h-full text-sm md:text-xl lg:text-2xl p-4">
+            <Image src={deposito} alt="Imagen de deposito" class="w-full h-auto hidden sm:block" priority/>
+            <div class="relative sm:absolute bottom-0 w-full h-full text-sm md:text-lg lg:text-2xl p-4">
                 <div class="flex lg:items-center lg:justify-center">
                     <div class="w-1/2 hidden sm:block">
-                        <Image src={operario} alt="Imagen de operario" class="scale-x-[-1] sm:scale-x-[1]"/>
+                        <Image src={operario} alt="Imagen de operario" loading="lazy" class="md:mt-12 sm:w-3/4 md:w-5/6 scale-x-[-1] sm:scale-x-[1]"/>
                     </div>
                     <div class="w-1/2 ps-10 sm:hidden absolute bottom-0 right-0">
-                        <Image src={operario} alt="Imagen de operario" class="scale-x-[-1] sm:scale-x-[1]"/>
+                        <Image src={operario} alt="Imagen de operario" loading="lazy" class="scale-x-[-1] sm:scale-x-[1]"/>
                     </div>
                     <div class="">
                         <h1 class="text-[#e20719] text-4xl font-extrabold mb-4 hidden sm:block">Servicios</h1>
-                        <ul class="[&>li>img]:w-6 [&>li]:flex [&>li]:gap-2 space-y-4">
-                            <li><img src={acondicionado.src} alt="Aires acondicionados"> Aires acondicionados</li>
-                            <li class="sm:ms-2"><img src={mantenimiento.src} alt="Mantenimiento centralizado"> Mantenimiento centralizado</li>
-                            <li class="sm:ms-4"><img src={instalacion.src} alt="Instalaciones eléctricas"> Instalaciones eléctricas</li>
-                            <li class="sm:ms-6"><img src={bomba.src} alt="Bombas de agua y refrigeración"> Bombas de agua y refrigeración</li>
-                            <li class="sm:ms-8"><img src={electrogeno.src} alt="Grupos electrógenos"> Grupos electrógenos</li>
-                            <li class="sm:ms-10"><img src={durlocks.src} alt="Durlocks y carpintería métalica"> Durlocks y carpintería métalica</li>
-                            <li class="sm:ms-12"><img src={pintura.src} alt="Pintura general"> Pintura general</li>
-                            <li class="sm:ms-14"><img src={obras.src} alt="Obras civiles"> Obras civiles</li>
+                        <ul class="[&>li>img]:w-6 [&>li]:flex [&>li]:gap-2 space-y-2 sm:space-y-3 md:lg:space-y-6 lg:space-y-8">
+                            <li class="sm:ms-2"><img src={acondicionado.src} alt="Aires acondicionados"> Aires acondicionados</li>
+                            <li class="sm:ms-4"><img src={mantenimiento.src} alt="Mantenimiento centralizado"> Mantenimiento centralizado</li>
+                            <li class="sm:ms-6"><img src={instalacion.src} alt="Instalaciones eléctricas"> Instalaciones eléctricas</li>
+                            <li class="sm:ms-8"><img src={bomba.src} alt="Bombas de agua y refrigeración"> Bombas de agua y refrigeración</li>
+                            <li class="sm:ms-10"><img src={electrogeno.src} alt="Grupos electrógenos"> Grupos electrógenos</li>
+                            <li class="sm:ms-12"><img src={durlocks.src} alt="Durlocks y carpintería métalica"> Durlocks y carpintería métalica</li>
+                            <li class="sm:ms-14"><img src={pintura.src} alt="Pintura general"> Pintura general</li>
+                            <li class="sm:ms-16"><img src={obras.src} alt="Obras civiles"> Obras civiles</li>
                         </ul>
                     </div>
                 </div>

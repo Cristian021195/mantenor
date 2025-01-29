@@ -6,6 +6,11 @@
 }
 
 @font-face {
+    font-family: 'MontserratBold';
+    src: url('/fonts/Montserrat-Bold.woff2') format('woff2');
+}
+
+@font-face {
     font-family: 'MontserratExtraBold';
     src: url('/fonts/Montserrat-ExtraBold.woff2') format('woff2');
 }
@@ -20,4 +25,18 @@ body, header{
 #accordion div{display: none;}
 #accordion input:checked + div {
     display: block;
+}
+#contacto-b:hover{background-color: rgba(0,0,0,0.5)}
+
+.card-container {
+    @apply rounded-xl shadow-[4px_4px_4px_2px_rgba(0,_0,_0,_0.2)] border border-gray-100 p-6 w-80 space-y-4;
+}
+.card-img{
+    @apply max-h-16 h-16 mx-auto;
+}
+.card-title{
+    @apply text-2xl font-semibold text-[#e20719]
+}
+.card-text{
+    @apply text-gray-400 text-base mt-2 font-bold
 }
