@@ -3,16 +3,19 @@
 @font-face {
     font-family: 'Montserrat';
     src: url('/fonts/Montserrat-Regular.woff2') format('woff2');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'MontserratBold';
     src: url('/fonts/Montserrat-Bold.woff2') format('woff2');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'MontserratExtraBold';
     src: url('/fonts/Montserrat-ExtraBold.woff2') format('woff2');
+    font-display: swap;
 }
   
 body, header{
