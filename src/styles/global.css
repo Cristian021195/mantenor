@@ -40,3 +40,6 @@ body, header{
 .card-text{
     @apply text-gray-400 mt-2 text-sm font-bold md:text-base
 }
+.input{
+    @apply bg-gray-100 rounded-md px-6 py-0.5;
+}

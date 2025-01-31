@@ -1,9 +1,9 @@
 ---
 import mantenor from "../assets/svg/mantenor.svg"
 ---
-<footer class="bg-linear-to-t from-[#80170d] to-[#e20719] text-gray-100 sm:px-40 sm:py-10 p-4">
-    <section class="flex sm:justify-between sm:text-start justify-center flex-wrap text-center ">
-        <div class=" mx-auto lg:mx-0 text-center">
+<footer class="bg-linear-to-t from-[#80170d] to-[#e20719] text-gray-100 xl:px-20 sm:py-10 py-10 p-4">
+    <section class="grid grid-cols-2 gap-8 lg:[&>div]:px-4">
+        <div class="mx-auto lg:mx-0 col-span-2 md:col-span-1 order-2 lg:order-1 py-10 md:py-0">
             <h4 class="ms-4 text-2xl font-bold underline" id="contacto">Contacto</h4>
             <br>
             <ul class="[&>li]:flex [&>li]:gap-2 text-sm md:text-lg space-y-2 md:space-y-0">
@@ -27,12 +27,25 @@ import mantenor from "../assets/svg/mantenor.svg"
                     <a href="https://maps.app.goo.gl/Z43MMMQRUBiD1NScA">Muñecas 2657 - SM de Tucumán</a>
                 </li>
             </ul>
+            <div class="w-auto sm:w-2/3 my-8 mx-auto md:mx-0">
+                <img src={mantenor.src} alt="Logo mantenor">
+            </div>
         </div>
-        <div class="w-3/5 lg:w-auto my-8 lg:my-0 mx-auto lg:mx-0">
-            <img src={mantenor.src} alt="Logo mantenor" class="sm:w-3xs mx-auto lg:mx-0">
-        </div>
+        <div class="col-span-2 md:col-span-1 order-1 lg:order-2">
+            <h4 class="ms-4 text-2xl font-bold text-center">Asesoramiento</h4>
+            <p class="text-center my-2">¿Necesitas comunicarte con nosotros? Escribinos</p>
+            <form class="md:mt-8 flex-col space-y-2 [&>input]:placeholder:text-gray-400 [&>input]:placeholder:font-bold [&>input]:w-full">
+                <input type="text" name="nombre" id="nombre" class="input" placeholder="Nombre y apellido*">
+                <input type="email" name="email" id="email" class="input" placeholder="E-mail*">
+                <input type="text" name="telefono" id="telefono" class="input" placeholder="Teléfono (con código de área)*">
+                <textarea name="consulta" id="consulta" placeholder="Consulta*" rows="5" class="input w-full placeholder:text-gray-400 placeholder:font-bold"></textarea>
+                <div class="text-end">
+                    <button disabled type="submit" class="cursor-pointer bg-gray-100 text-center text-[#d60719] rounded-md py-1 md:w-1/2 font-bold w-full">Enviar formulario</button>
+                </div>
+            </form>
+        </div>        
     </section>    
-    <div class="text-center">
+    <div class="text-center lg:mt-8">
         <div class="flex gap-4 justify-center my-4">
             <a href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">

@@ -6,16 +6,16 @@ import edilicio from "../assets/img/edilicio.jpg";
 import soluciones from "../assets/img/soluciones.jpg";
 ---
 <div id="carrousel-container" class="relative">
-    <div id="carrousel-visor" class="text-white flex items-center overflow-hidden">
+    <div id="carrousel-visor" class="text-white flex items-center overflow-hidden xl:h-screen">
         <div id="carrousel-gallery" class="flex items-center transition-transform duration-300 ease-in-out [&>div>div>span]:[text-shadow:_0_4px_12px_rgb(0_0_0_/_0.8)]
-         [&>div>div]:absolute [&>div>div>span]:text-2xl lg:[&>div>div>span]:text-6xl [&>div>div]:sm:m-16 [&>div>div]:m-4">
+         [&>div>div]:absolute [&>div>div>span]:text-2xl md:[&>div>div>span]:text-4xl lg:[&>div>div>span]:text-6xl [&>div>div]:md:m-12 [&>div>div]:lg:m-24 [&>div>div]:m-4">
             <div class="flex-shrink-0 w-full lg:w-2/3">
                 <div class="w-full">
                     <span>Mantenimiento a medida</span>
                     <br>
                     <span>para empresas</span>
                 </div>
-                <Image src={mantenimiento} alt="Imagen de obreros y mantenimiento" class="w-full" priority>
+                <Image src={mantenimiento} alt="Imagen de obreros y mantenimiento" class="w-full h-auto aspect-video" priority>
             </div>
             <div class="flex-shrink-0 w-full lg:w-2/3">
                 <div class="w-full">
