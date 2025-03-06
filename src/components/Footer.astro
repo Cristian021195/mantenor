@@ -34,15 +34,24 @@ import mantenor from "../assets/svg/mantenor.svg"
         <div class="col-span-2 md:col-span-1 order-1 lg:order-2">
             <h2 class="ms-4 text-2xl font-bold text-center">Asesoramiento</h2>
             <p class="text-center my-2">¿Necesitas comunicarte con nosotros? Escribinos</p>
-            <form class="md:mt-8 flex-col space-y-2 [&>input]:placeholder:text-gray-400 [&>input]:placeholder:font-bold [&>input]:w-full">
+            <form id="fcontacto" class="md:mt-8 flex-col space-y-2 [&>input]:placeholder:text-gray-400 [&>input]:placeholder:font-bold [&>input]:w-full text-slate-800">
                 <input type="text" name="nombre" id="nombre" class="input" placeholder="Nombre y apellido*">
                 <input type="email" name="email" id="email" class="input" placeholder="E-mail*">
                 <input type="text" name="telefono" id="telefono" class="input" placeholder="Teléfono (con código de área)*">
                 <textarea name="consulta" id="consulta" placeholder="Consulta*" rows="5" class="input w-full placeholder:text-gray-400 placeholder:font-bold"></textarea>
-                <div class="text-end">
-                    <button disabled type="submit" class="cursor-pointer bg-gray-100 text-center text-[#d60719] rounded-md py-1 md:w-1/2 font-bold w-full">Enviar formulario</button>
+                <div class="text-end md:flex md:justify-end">
+                    <button id="fsubmit" type="submit" class="cursor-pointer bg-gray-100 text-center text-[#d60719] rounded-md py-1 md:w-1/2 font-bold w-full flex justify-center">
+                        <span id="floader" class="hidden">
+                            <svg fill="#d60719" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10.14,1.16a11,11,0,0,0-9,8.92A1.59,1.59,0,0,0,2.46,12,1.52,1.52,0,0,0,4.11,10.7a8,8,0,0,1,6.66-6.61A1.42,1.42,0,0,0,12,2.69h0A1.57,1.57,0,0,0,10.14,1.16Z"><animateTransform attributeName="transform" type="rotate" dur="0.75s" values="0 12 12;360 12 12" repeatCount="indefinite"/></path></svg>
+                        </span>
+                        <span id="fspan" class="">Enviar formulario</span>
+                    </button>
                 </div>
             </form>
+            <div class="bg-gray-100 p-2 rounded mt-4 hidden" id="fresponse">
+                <p class="text-green-600 hidden" id="fsuccess"><b>Su consulta fue cargada con éxito, nos comunicaremos a la brevedad</b></p>
+                <p class="text-[#d60719] hidden" id="ferror"><b>Hubo un error al cargar su consulta, verifique los datos ingresados e intente nuevamente</b></p>
+            </div>
         </div>        
     </section>    
     <div class="text-center lg:mt-8">
@@ -66,3 +75,65 @@ import mantenor from "../assets/svg/mantenor.svg"
         <p>&copy; 2025 - Todos los derechos reservados</p>
     </div>
 </footer>
+<script>
+    const $fcontacto = document.getElementById('fcontacto');
+    const $fsubmit = document.getElementById('fsubmit');
+    const $fspan = document.getElementById('fspan');
+    const $floader = document.getElementById('floader');
+    const $fresponse = document.getElementById('fresponse');
+    const $fsuccess = document.getElementById('fsuccess');
+    const $ferror = document.getElementById('ferror');
+
+    $fcontacto?.addEventListener('submit',async (e)=>{
+        e.preventDefault();
+        const fData = new FormData($fcontacto as HTMLFormElement);
+        if(dentroExpiracion()){
+            alert('Usted acabá de generar una consulta, intente nuevamente en 20 minutos');
+            return;
+        }
+        try {
+            $floader?.classList.remove('hidden');
+            $fsubmit?.setAttribute('disabled', 'true');
+            $fspan?.classList.add('hidden');
+            const pet = await fetch('./index.php', {
+                method:'POST',
+                body: fData
+            })
+            
+            if(pet.ok){
+                const response = await pet.json();
+                console.log(response);
+                setExpiracion();
+                $fresponse?.classList.remove('hidden');
+                $fsuccess?.classList.remove('hidden');
+            }else{
+                throw 'Error al cargar el formulario';
+            }
+        } catch (error) {
+            $fresponse?.classList.remove('hidden');
+            $ferror?.classList.remove('hidden');
+            console.log(error);
+        }finally{
+            $floader?.classList.add('hidden');
+            $fsubmit?.removeAttribute('disabled');
+            $fspan?.classList.remove('hidden');
+        }
+    })
+
+    // Function to add 20 minutes and save to localStorage
+    function setExpiracion() {
+        const now = new Date();
+        now.setMinutes(now.getMinutes() + 20); // Add 20 minutes
+        localStorage.setItem("expiracion", now.getTime()+""); // Save as timestamp
+    }
+
+    // Function to check if the current time is within 20 minutes
+    function dentroExpiracion(){
+        const exp = localStorage.getItem("expiracion") as any;
+        if (!exp) return false; // If no expiry time, return false
+        
+        const now = new Date().getTime(); // Get current timestamp
+        return now <= exp; // Compare current time with expiry
+    }
+    
+</script>
