@@ -38,7 +38,7 @@ try {
 
     // Email Details
     $mail->setFrom('tickets@correoflash.com', 'Mantenor notificaciones');
-    $mail->addAddress('aldo.rissi@crearmantenimiento.com.ar', 'Destino');
+    $mail->addAddress('<destination@something.com>', 'Destino');
     $mail->Subject = '¡Nueva consulta de un cliente!';
     $mail->Body = formarMail($fn, $fe, $ft, $fc);
     
