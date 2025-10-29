@@ -38,7 +38,7 @@ body, header{
     /*@apply min-h-12 max-h-14 my-auto md:mx-auto md:my-0;*/
 }
 .card-title{
-    @apply text-xl font-semibold text-[#e20719] md:text-2xl
+    @apply text-xl font-semibold text-[#25704F] md:text-2xl
 }
 .card-text{
     @apply text-gray-400 mt-2 text-sm font-bold md:text-base
