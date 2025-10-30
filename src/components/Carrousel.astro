@@ -99,6 +99,8 @@ import soluciones from "../assets/img/soluciones.jpg";
     const slides = document.querySelectorAll('#carrousel-gallery > div');
     const totalSlides = slides.length;
     const carrouselGallery = document.getElementById('carrousel-gallery');
+
+    carrouselGallery!.style.transform = `translateX(-${currentIndex * 100}%)`;
   
     // Function to move to the next slide
     function moveNext() {
